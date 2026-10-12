@@ -8,11 +8,17 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, noctalia, ... }: {
     nixosConfigurations = {
+      
       nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         modules = [
           ./nixos/configuration.nix
 
@@ -25,7 +31,7 @@
 
             # Use home-manager.extraSpecialArgs to pass custom arguments to ./home.nix
             # Uncomment the next line to make all flake inputs available in home.nix
-            # home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {inherit inputs; };
           }
         ];
       };

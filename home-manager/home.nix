@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Import files from the current configuration directory into the Nix store,
@@ -18,14 +18,15 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
-
-
+  imports = [
+     inputs.noctalia.homeModules.default
+  ];
+  home.file.".config/hypr/hyprland.lua".source = ../modules/home-manager/hypr/hyprland.lua;
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-
+    bitwarden-desktop
     nnn # terminal file manager
     sunshine
-
     # archives
     zip
     xz
@@ -90,6 +91,9 @@
     firefox
     wofi
     spotify
+    rofi
+    quickshell
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.wofi = {
@@ -159,6 +163,24 @@
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
     };
   };
+  programs.noctalia = {
+    enable = true;
+
+  settings = {
+    theme = {
+      mode = "dark";
+      source = "builtin";
+      builtin = "Catppuccin";
+    };
+
+    wallpaper = {
+      enabled = true;
+      default.path = "/home/isaac/wp1/wallpaper.png";
+    };
+  };
+  };
+
+  services.dunst.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
