@@ -43,6 +43,17 @@ local terminal    = "alacritty"
 local fileManager = "thunar"
 local browser     = "firefox"
 
+
+hl.window_rule({
+    name = "spotify-special",
+    match = { class = "Spotify" },
+    workspace = "special:media",
+})
+hl.window_rule({
+    name = "discord-special",
+    match = { class = "discord" },
+    workspace = "special:communication",
+})
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -290,7 +301,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("media"))
+hl.bind(mainMod .. " + D", hl.dsp.workspace.toggle_special("communication"))
 -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll

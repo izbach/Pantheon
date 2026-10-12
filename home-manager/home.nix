@@ -91,6 +91,7 @@
     steam
     firefox
     spotify
+    discord
     tailscale
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
