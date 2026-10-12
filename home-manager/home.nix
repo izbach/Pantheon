@@ -25,7 +25,6 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     bitwarden-desktop
-    nnn # terminal file manager
     sunshine
     # archives
     zip
@@ -88,29 +87,14 @@
     usbutils # lsusb
 
     thunar
+    libreoffice
+    steam
     firefox
-    wofi
     spotify
-    rofi
-    quickshell
+    tailscale
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
-  programs.wofi = {
-  enable = true;
-  settings = {
-    width = 600;
-    height = 300;
-    prompt = "Search...";
-    # Add any extra wofi/config options here
-  };
-  style = ''
-    window {
-      background-color: rgba(30, 30, 46, 0.9);
-      border-radius: 8px;
-    }
-  '';
-};
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -141,7 +125,6 @@
       env.TERM = "xterm-256color";
       font = {
         size = 12;
-        draw_bold_text_with_bright_colors = true;
       };
       scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
@@ -161,6 +144,7 @@
       k = "kubectl";
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
       urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
+      nrs = "sudo nixos-rebuild switch";
     };
   };
   programs.noctalia = {

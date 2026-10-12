@@ -35,7 +35,9 @@
     layout = "us";
     variant = "";
   };
+  
 
+  home-manager.backupFileExtension = "backup";
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."isaac" = {
     isNormalUser = true;
