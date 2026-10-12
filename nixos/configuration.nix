@@ -76,7 +76,7 @@
   # services.displayManager.defaultSession = "hyprland";
   programs.hyprland.enable = true;
   # List services that you want to enable:
-  
+  programs.neovim.defaultEditor = true;  
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 

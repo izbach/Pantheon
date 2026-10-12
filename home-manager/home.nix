@@ -103,6 +103,9 @@
       name = "isaac";
       email = "bachelderisaac@gmail.com";
     };
+    extraConfig = {
+      core.editor = "nvim";
+    };
   };
 
   # starship - an customizable prompt for any shell
