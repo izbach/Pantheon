@@ -22,6 +22,10 @@
      inputs.noctalia.homeModules.default
   ];
   home.file.".config/hypr/hyprland.lua".source = ../modules/home-manager/hypr/hyprland.lua;
+  home.file."/home/isaac/Pictures/Wallpapers" = {
+     source = ../modules/home-manager/noctalia/wallpapers;
+     recursive = true;
+  };
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     bitwarden-desktop
@@ -164,7 +168,7 @@
 
     wallpaper = {
       enabled = true;
-      default.path = "/home/isaac/wp1/wallpaper.png";
+      default.path = "/home/isaac/Pictures/Wallpapers";
     };
   };
   };
