@@ -93,6 +93,7 @@
     spotify
     discord
     tailscale
+    github-cli
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
