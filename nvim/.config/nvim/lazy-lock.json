@@ -1,6 +1,0 @@
-{
-  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "ultisnips": { "branch": "master", "commit": "0223456b89f7f797c5424ddef07cfc28b5cd86a5" },
-  "vim-snippets": { "branch": "master", "commit": "ededcf7581962ee616cadab360d5966f3307f11a" },
-  "vimtex": { "branch": "master", "commit": "97e11bd4f56d46a87f8593d6ccb27820e19c4ab0" }
-}
