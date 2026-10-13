@@ -1,0 +1,105 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment():
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')")
+    return x != '0' and y != '0'
+endglobal
+
+
+snippet mk "Inline math" A
+$ $1 $
+endsnippet
+	
+snippet dm "Display math" A
+$$
+$1 
+$$
+endsnippet
+		
+### Greeks
+snippet alpha "alpha" A
+\alpha
+endsnippet
+snippet beta "beta" A
+\alpha
+endsnippet
+snippet delta "delta" A
+\delta
+endsnippet
+snippet Delta "Delta" A
+\Delta
+endsnippet
+snippet gamma "gamma" A
+\gamma
+endsnippet
+snippet Gamma "Gamma" A
+\Gamma
+endsnippet
+snippet lambda "lambda" A
+\lambda
+endsnippet
+snippet Lambda "Lambda" A
+\Lambda
+endsnippet
+snippet psi "psi" A
+\psi
+endsnippet
+snippet Psi "Psi" A
+\Psi
+endsnippet
+snippet epsilon "epsilon" A
+\epsilon
+endsnippet
+snippet theta "theta" A
+\theta
+endsnippet
+snippet Theta "Theta" A
+\Theta
+endsnippet
+snippet phi "phi" A
+\phi
+endsnippet
+snippet Phi "Phi" A
+\Phi
+endsnippet
+snippet omega "omega" A
+\omega
+endsnippet
+snippet Omega "Omega" A
+\Omega
+endsnippet
+snippet xi "xi" A
+\xi
+endsnippet
+snippet Xi "Xi" A
+\Xi
+endsnippet
+
+
+
+context "math()"
+snippet rd "superscript" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet ttt "test math context" iA
+MATHWORKS
+endsnippet
+
+
+
+### Environment
+snippet card "Make Anki Card" b
+\begin{card}
+\front{$1}
+\back{
+	$2
+}
+\end{card}
+endsnippet
