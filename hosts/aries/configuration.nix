@@ -32,7 +32,7 @@
     variant = "";
   };
   
-
+  services.upower.enable = true;
   home-manager.backupFileExtension = "backup";
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."isaac" = {
@@ -53,8 +53,9 @@
      wofi
      kitty
      neovim
+     upower
   ];
-
+  services.tailscale.enable = true;
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.neovim.defaultEditor = true;  
@@ -72,5 +73,4 @@
      dates = "weekly";
      options = "--delete-older-than 30d";
   };
-
 }
